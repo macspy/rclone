@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A personal, locally run Rclone configuration for downloading and verifying Google Drive files while preserving folder structure.">
+  <meta name="robots" content="index,follow">
+  <title>macspy Drive Transfer — Personal Rclone Configuration</title>
+  <style>
+    :root{color-scheme:light;--ink:#182337;--soft:#46546c;--line:#dce4ef;--accent:#235caa;--bg:#f6f8fc}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--accent)}a:focus-visible{outline:3px solid #f0b429;outline-offset:3px}
+    header,main,footer{max-width:850px;margin:auto;padding:0 24px}
+    header{padding-top:48px}main{padding-top:22px;padding-bottom:42px}
+    .tag{display:inline-block;background:#e6edf8;color:#254f87;border-radius:24px;padding:5px 12px;font-size:13px;font-weight:700}
+    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.15;margin:20px 0 14px;letter-spacing:-.03em}
+    h2{font-size:1.3rem;margin:0 0 12px}.lead{font-size:1.15rem;color:var(--soft);max-width:680px}
+    .card{background:white;border:1px solid var(--line);border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 4px 24px rgba(30,48,78,.035)}
+    ul{padding-left:24px}li+li{margin-top:7px}
+    .note{border-left:4px solid var(--accent);padding:14px 18px;background:#eaf2ff;border-radius:4px}
+    footer{padding-bottom:50px;color:var(--soft);font-size:.93rem}
+    .links{display:flex;flex-wrap:wrap;gap:18px;margin-top:26px}
+  </style>
+</head>
+<body>
+  <header>
+    <span class="tag">Personal-use Google Drive integration</span>
+    <h1>macspy Drive Transfer</h1>
+    <p class="lead">A personal Google Drive OAuth configuration used with the open-source Rclone command-line application to download large folders and files reliably to a local computer.</p>
+    <nav class="links" aria-label="Site navigation"><a href="./">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="https://github.com/macspy/rclone">Project Repository</a></nav>
+  </header>
+  <main>
+    <section class="card">
+      <h2>What this configuration does</h2>
+      <ul>
+        <li>Connects an authorized Google account to a locally installed Rclone client.</li>
+        <li>Lists folders and downloads original files, including large video footage and nested project folders.</li>
+        <li>Preserves directory structure, retries interrupted transfers, and allows file verification.</li>
+        <li>Lets the authorized user select a local destination for downloaded files.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Why Google Drive permission is requested</h2>
+      <p>Rclone needs Google Drive API access to identify folders, read file metadata, and download the files that the signed-in Google account is authorized to access. The intended usage is <strong>read-only</strong>; the configuration does not require permission to upload, modify, or delete Google Drive files.</p>
+      <p>Authentication is performed through Google's OAuth flow. Rclone uses the authorization token on the user's own computer to make the requested Google Drive API calls.</p>
+      <p>Access is limited to what Google permits for the account and what the granted OAuth scopes allow. No access to a file is possible merely because someone knows its name.</p>
+    </section>
+    <section class="card">
+      <h2>How Google account data is handled</h2>
+      <p>This repository provides documentation and a personal OAuth configuration; it is <strong>not</strong> a hosted file-transfer service. The actual transfers run locally through Rclone. File data and access tokens are not submitted to this website.</p>
+      <p>See the <a href="privacy.html">Privacy Policy</a> for the types of Google data accessed, local token and download storage, use and retention, sharing, and how to revoke access.</p>
+    </section>
+    <p class="note">This is an independent personal-use integration, not an official Google or Rclone product. Rclone itself is developed and maintained by the Rclone project at <a href="https://rclone.org/">rclone.org</a>.</p>
+  </main>
+  <footer>
+    <p><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="https://github.com/macspy/rclone/issues">Contact via GitHub Issues</a></p>
+    <p>Last updated October 26, 2026.</p>
+  </footer>
+</body>
+</html>
